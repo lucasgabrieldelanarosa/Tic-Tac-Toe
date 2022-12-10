@@ -80,8 +80,6 @@ function checkWinner(){
             xWins++
         }else if(currentPlayer == 'O'){
             oWins++
-        }else{
-            draws++
         }
         updateStatus()
         statusText.textContent = `${currentPlayer} wins!`;
@@ -92,6 +90,8 @@ function checkWinner(){
     // if there are not a winner and there are any empty space, we have a draw
     else if(!options.includes("")){
         statusText.textContent = `Draw!`;
+        draws++
+        updateStatus()
         running = false;
     }
 
@@ -119,4 +119,6 @@ function updateStatus(){
     xWinsSpan.innerHTML = xWins;
     oWinsSpan.innerHTML = oWins;
     drawsSpan.innerHTML = draws;
+
+    console.log(xWins, draws, oWins)
 }
