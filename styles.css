@@ -1,0 +1,84 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+:root{
+    --size: 100px;
+    --bg-color-1: rgb(136, 90, 90);
+    --bg-color-2: rgb(116, 41, 41);
+    --bg-color-3: rgb(82, 0, 0);
+    --bg-color-4: rgb(24, 0, 0);
+    --bg-restart-btn: #5c5f61;
+    --bg-restart-btn-hover: #697175;
+    --color: #a9aaac;
+}
+.game-container{
+    background-image: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3), var(--bg-color-4));
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+.cell{
+    color: var(--color);
+    width: var(--size);
+    height: var(--size);
+    border: 1px solid black;
+    font-size: 50px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+.not-clicked-cell{
+    cursor: pointer;
+}
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+.cell:nth-child(3n + 1){
+    border-left: none;
+}
+.cell:nth-child(3n + 3){
+    border-right: none;
+}
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7){
+    border-bottom: none;
+}
+
+.restart-btn{
+    background-color: var(--bg-restart-btn);
+    font-size: 1.5rem;
+    border-radius: 15px;
+    padding: 8px;
+}
+.restart-btn:hover{
+    background-color: var(--bg-restart-btn-hover);
+    cursor: pointer;
+}
+
+.results{
+    width: 30vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2vw;
+    justify-content: center;
+    align-content: center;
+}
+.results h3{
+    display: flex;
+    justify-content: center;
+}
